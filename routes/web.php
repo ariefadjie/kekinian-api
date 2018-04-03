@@ -66,6 +66,8 @@ Route::group(['prefix' => 'api/v1'], function () {
         ];
     });
 
+    Route::post('reviews/{id}','Api\ReviewController@store');
+
     Route::get('reviews/1',function(){
         return [
             [
