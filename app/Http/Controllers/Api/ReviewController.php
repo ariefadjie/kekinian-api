@@ -14,6 +14,9 @@ class ReviewController extends Controller
             'message' => 'required',
             'rate' => 'required|min:1|max:3|numeric',
         ]);
-        return ['message'=>'Review Sent!'];
+        return [
+            'message'=>'Review Sent!',
+            'data' => request()->all(),
+        ];
     }
 }
