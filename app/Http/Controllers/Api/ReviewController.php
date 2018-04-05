@@ -11,7 +11,7 @@ class ReviewController extends Controller
 {
     public function show($id)
     {
-        return Review::select('name','message','rate')->wherePlaceId($id)->get();
+        return Review::select('name','message','rate')->wherePlaceId($id)->latest()->get();
     }
 
     public function store()
