@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'api/v1'], function () {
+Route::group(['prefix' => 'api/v1','middleware'=>'api'], function () {
     Route::resource('places','Api\PlaceController',['only'=>['index','show']]);
     Route::resource('reviews','Api\ReviewController',['only'=>['store','show']]);
 });
