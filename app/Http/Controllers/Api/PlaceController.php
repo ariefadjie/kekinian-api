@@ -19,7 +19,7 @@ class PlaceController extends Controller
             'img_profile',
             'img_cover',
             DB::raw('(select count(*) as aggregate from reviews where place_id=places.id) as review'),
-            DB::raw('(select ceil(sum(rate)/review) as aggregate from reviews where place_id=places.id) as rate')
+            DB::raw('(select COALESCE(CAST(ceil(sum(rate)/review) as INTEGER),0) as aggregate from reviews where place_id=places.id) as rate')
         )->get();
     }
 
