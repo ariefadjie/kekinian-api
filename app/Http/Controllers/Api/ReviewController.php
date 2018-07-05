@@ -17,8 +17,8 @@ class ReviewController extends Controller
     public function store()
     {
         $this->validate(request(),[
-            'name' => 'required',
-            'message' => 'required',
+            'name' => 'required|max:20',
+            'message' => 'required|max:200',
             'rate' => 'required|min:1|max:3|numeric',
             'place_id' => 'required',
         ]);
